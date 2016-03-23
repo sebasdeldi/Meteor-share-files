@@ -1,0 +1,47 @@
+<head>
+	<title>Compartidor de archivos.</title>
+</head>
+
+<body>
+	
+	{{>main}}
+
+	{{>uploadedFiles}}
+
+</body>
+
+<!--En este template creo un input que permita mandar un archivo como param -->
+<template name = "main">
+	<br>
+	<br>
+	<h1>Sube un archivo:</h1>
+	<br>
+	<input type="file" id="myFileInput">
+	<br>
+	<br>
+</template>
+
+
+<!--Este template, muestra una lista de todos los links de los files que se han subido -->
+<template name = "uploadedFiles">
+	<div class="fileView">
+	    {{#each files}}
+	    	<ul>
+	    	  <li>
+	    	  	<a href="{{this.url}}" target="_blank" class="file-link">{{this.name}}</a>
+				<br>
+				Tipo = {{this.type}}  //  Tamaño = {{this.size}}
+				<br>
+				<!-- Botón de descarga -->
+	    	  	<a href="{{this.url download=true}}" class="btn btn-primary" target="_parent"><button>Download</button></a>
+	    	  </li>
+	    	  <br>
+	    	  <br>
+	    	</ul>
+	    {{/each}}
+	</div>
+
+
+
+</template>
+
